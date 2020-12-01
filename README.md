@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/magupisoft/jobsity-challenge.svg?branch=develop)](https://travis-ci.org/magupisoft/jobsity-challenge)
+
 # jobsity-challenge
 
 Generate Database from CLI
