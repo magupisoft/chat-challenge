@@ -31,9 +31,6 @@ namespace Jobsity.Chat.UI
             services.Configure<MessageBrokerSettings>(Configuration.GetSection(
                                         AppConstants.MessageBrokerSettingsSection));
 
-            services.Configure<RabbitMqQueueSettings>(Configuration.GetSection(
-                                       AppConstants.RabbitMqQueueSettingsSection));
-
             services.AddDbContext<IdentityDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));

@@ -14,22 +14,22 @@ namespace Jobsity.Chat.MessageBroker
         }
 
         #region abstract methods
-        protected abstract IProducer<T> CreateProducer(IQueueSettings queueSettings);
-        protected abstract IConsumer<T> CreateConsumer(IQueueSettings queueSettings);
+        protected abstract IProducer<T> CreateProducer(IMessagingSettings queueSettings);
+        protected abstract IConsumer<T> CreateConsumer(IMessagingSettings queueSettings);
         #endregion
 
         #region IMessageBrokerManager<T> members
         public Dictionary<string, IConsumer<T>> Consumers { get; protected set; }
         public Dictionary<string, IProducer<T>> Producers { get; protected set; }
 
-        public void AddConsumer(string name, IQueueSettings queueSettings)
+        public void AddConsumer(string name, IMessagingSettings queueSettings)
         {
             var consumer = this.CreateConsumer(queueSettings);
             Consumers.Add(name, consumer);
 
             Consumers[name].StartListeningMessages();
         }
-        public void AddProducer(string name, IQueueSettings queueSettings)
+        public void AddProducer(string name, IMessagingSettings queueSettings)
         {
             var producer = this.CreateProducer(queueSettings);
 

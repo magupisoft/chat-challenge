@@ -1,4 +1,5 @@
 ﻿using Jobsity.Chat.Contracts.Interfaces.MessageBroker;
+using Jobsity.Chat.Contracts.Messaging;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 using System;
@@ -19,7 +20,7 @@ namespace Jobsity.Chat.MessageBroker.Messaging
         #region IRabbitMqMessaging members
         public IModel Channel { get; private set; }
         public string ExchangeType { get; set; }
-        public IQueueSettings QueueSettings { get; set; }
+        public IMessagingSettings MessagingSettings { get; set; }
         #endregion
 
         #region RabbitMQ events
@@ -42,20 +43,20 @@ namespace Jobsity.Chat.MessageBroker.Messaging
 
         public override void StartListeningMessages()
         {
-            this.Channel.ExchangeDeclare(exchange: this.QueueSettings.ExchangeName, type: this.ExchangeType);
-            this.Channel.QueueDeclare(this.QueueSettings.QueueName,
+            this.Channel.ExchangeDeclare(exchange: this.MessagingSettings.ExchangeName, type: this.ExchangeType);
+            this.Channel.QueueDeclare(this.MessagingSettings.QueueName,
                 durable: true,
                 exclusive: false,
                 autoDelete: false);
-            this.Channel.QueueBind(queue: this.QueueSettings.QueueName,
-                exchange: QueueSettings.ExchangeName,
-                routingKey: QueueSettings.RoutingKey);
+            this.Channel.QueueBind(queue: this.MessagingSettings.QueueName,
+                exchange: MessagingSettings.ExchangeName,
+                routingKey: MessagingSettings.RoutingKey);
 
             var consumer = new EventingBasicConsumer(this.Channel);
 
             consumer.Received += RabbitMqMessageReceived;
 
-            this.Channel.BasicConsume(queue: QueueSettings.QueueName,
+            this.Channel.BasicConsume(queue: MessagingSettings.QueueName,
                 autoAck: true,
                 consumer: consumer);
         }

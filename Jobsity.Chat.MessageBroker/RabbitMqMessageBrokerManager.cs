@@ -1,5 +1,6 @@
 ﻿using Jobsity.Chat.Contracts.Interfaces;
 using Jobsity.Chat.Contracts.Interfaces.MessageBroker;
+using Jobsity.Chat.Contracts.Settings;
 using Jobsity.Chat.MessageBroker.Messaging;
 using Microsoft.Extensions.Options;
 using RabbitMQ.Client;
@@ -15,7 +16,7 @@ namespace Jobsity.Chat.MessageBroker
         protected IModel channel;
         protected IConnection connection;
 
-        public RabbitMqMessageBrokerManager(IOptions<IMessageBrokerSettings> settings) : base()
+        public RabbitMqMessageBrokerManager(IOptions<MessageBrokerSettings> settings) : base()
         {
             connectionFactory = new ConnectionFactory
             {
@@ -36,20 +37,20 @@ namespace Jobsity.Chat.MessageBroker
         }
 
         #region MessageBrokerManagerBase<T> overriden members
-        protected override IProducer<T> CreateProducer(IQueueSettings queueSettings)
+        protected override IProducer<T> CreateProducer(IMessagingSettings queueSettings)
         {
             return new RabbitMqProducer<T>(channel)
             {
                 ExchangeType = ExchangeType.Topic,
-                QueueSettings = queueSettings
+                MessagingSettings = queueSettings
             };
         }
-        protected override IConsumer<T> CreateConsumer(IQueueSettings queueSettings)
+        protected override IConsumer<T> CreateConsumer(IMessagingSettings queueSettings)
         {
             return new RabbitMqConsumer<T>(channel)
             {
                 ExchangeType = ExchangeType.Topic,
-                QueueSettings = queueSettings
+                MessagingSettings = queueSettings
             };
         }
         public override void StartResilientConnection()
@@ -63,7 +64,7 @@ namespace Jobsity.Chat.MessageBroker
                     CreateConnectionAndChannel();
                     semaphore.Set(); // state set to true - breaks out of loop
                 }
-                catch
+                catch(Exception ex)
                 {
                     Thread.Sleep(3000);
                 }

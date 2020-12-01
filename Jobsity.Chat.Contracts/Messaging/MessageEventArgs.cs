@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Jobsity.Chat.MessageBroker.Messaging
+namespace Jobsity.Chat.Contracts.Messaging
 {
     public class MessageEventArgs<T> : EventArgs
     {

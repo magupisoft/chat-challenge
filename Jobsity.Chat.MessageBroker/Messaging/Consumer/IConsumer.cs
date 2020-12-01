@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Jobsity.Chat.Contracts.Messaging;
+using System;
 
 namespace Jobsity.Chat.MessageBroker.Messaging
 {

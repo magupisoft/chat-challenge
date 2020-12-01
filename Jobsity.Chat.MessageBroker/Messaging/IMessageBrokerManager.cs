@@ -10,7 +10,7 @@ namespace Jobsity.Chat.MessageBroker.Messaging
         Dictionary<string, IConsumer<T>> Consumers { get; }
         Dictionary<string, IProducer<T>> Producers { get; }
         void StartResilientConnection();
-        void AddProducer(string producerName, IQueueSettings queueSettings);
-        void AddConsumer(string consumerName, IQueueSettings queueSettings);
+        void AddProducer(string producerName, IMessagingSettings queueSettings);
+        void AddConsumer(string consumerName, IMessagingSettings queueSettings);
     }
 }

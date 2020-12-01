@@ -1,6 +1,6 @@
 ﻿namespace Jobsity.Chat.Contracts.Interfaces.MessageBroker
 {
-    public interface IQueueSettings
+    public interface IMessagingSettings
     {
         string RoutingKey { get; set; }
         string ExchangeName { get; set; }

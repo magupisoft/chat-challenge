@@ -2,5 +2,6 @@
 {
     public interface IProducer<T> where T : class
     {
+        void ProduceMessage(T message);
     }
 }

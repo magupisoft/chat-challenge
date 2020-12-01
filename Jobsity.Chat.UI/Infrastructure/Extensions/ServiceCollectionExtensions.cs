@@ -1,6 +1,7 @@
 ﻿using Jobsity.Chat.Contracts.Interfaces;
 using Jobsity.Chat.Repository.IdentityRepository;
 using Jobsity.Chat.Service.IdentityService;
+using Jobsity.Chat.Service.MessageBrokerService;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Jobsity.Chat.UI.Infrastructure.Extensions
@@ -11,6 +12,7 @@ namespace Jobsity.Chat.UI.Infrastructure.Extensions
         {
             services.AddScoped<IIdentityRepository, IdentityRepository>();
             services.AddScoped<IIdentityService, IdentityService>();
+            services.AddSingleton<IRabbitMqService, RabbitMqService>();
         }
     }
 }

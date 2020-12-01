@@ -1,9 +1,8 @@
-﻿using Jobsity.Chat.Contracts.Interfaces;
-using System;
+﻿using System;
 
 namespace Jobsity.Chat.Contracts.Settings
 {
-    public class MessageBrokerSettings : IMessageBrokerSettings
+    public class MessageBrokerSettings
     {
         public string HostName { get; set; }
         public string Username { get; set; }

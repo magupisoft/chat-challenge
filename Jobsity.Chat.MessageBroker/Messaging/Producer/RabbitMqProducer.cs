@@ -16,7 +16,7 @@ namespace Jobsity.Chat.MessageBroker.Messaging
         #region IRabbitMqMessaging members
         public IModel Channel { get; private set; }
         public string ExchangeType { get; set; }
-        public IQueueSettings QueueSettings { get; set; }
+        public IMessagingSettings MessagingSettings { get; set; }
         #endregion
 
         #region ProducerBase<T> overriden members
@@ -24,10 +24,10 @@ namespace Jobsity.Chat.MessageBroker.Messaging
         {
             var body = Encoding.UTF8.GetBytes(message);
 
-            this.Channel.ExchangeDeclare(exchange: this.QueueSettings.ExchangeName,
+            this.Channel.ExchangeDeclare(exchange: this.MessagingSettings.ExchangeName,
                     type: this.ExchangeType);
-            this.Channel.BasicPublish(exchange: this.QueueSettings.ExchangeName,
-                routingKey: this.QueueSettings.RoutingKey,
+            this.Channel.BasicPublish(exchange: this.MessagingSettings.ExchangeName,
+                routingKey: this.MessagingSettings.RoutingKey,
                 basicProperties: null,
                 body: body);
         }

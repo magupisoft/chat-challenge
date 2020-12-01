@@ -7,6 +7,6 @@ namespace Jobsity.Chat.MessageBroker.Messaging
     {
         IModel Channel { get; }
         string ExchangeType { get; set; }
-        IQueueSettings QueueSettings { get; set; }
+        IMessagingSettings MessagingSettings { get; set; }
     }
 }

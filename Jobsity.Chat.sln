@@ -15,6 +15,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Jobsity.Chat.Service", "Job
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jobsity.Chat.MessageBroker", "Jobsity.Chat.MessageBroker\Jobsity.Chat.MessageBroker.csproj", "{CCF73F2B-A69B-4A34-9096-3C7E98E7D9F1}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{C89BE588-4528-420F-8FE4-DBA896927A31}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jobsity.Chat.IntegrationTests", "Jobsity.Chat.IntegrationTests\Jobsity.Chat.IntegrationTests.csproj", "{751193AB-D0A7-496C-A015-72B22947DEF2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jobsity.Chat.UnitTests", "Jobsity.Chat.UnitTests\Jobsity.Chat.UnitTests.csproj", "{9F9C63C9-FF52-44D6-BA7C-B8A5BA42A98D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,9 +51,21 @@ Global
 		{CCF73F2B-A69B-4A34-9096-3C7E98E7D9F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CCF73F2B-A69B-4A34-9096-3C7E98E7D9F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CCF73F2B-A69B-4A34-9096-3C7E98E7D9F1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{751193AB-D0A7-496C-A015-72B22947DEF2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{751193AB-D0A7-496C-A015-72B22947DEF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{751193AB-D0A7-496C-A015-72B22947DEF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{751193AB-D0A7-496C-A015-72B22947DEF2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F9C63C9-FF52-44D6-BA7C-B8A5BA42A98D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F9C63C9-FF52-44D6-BA7C-B8A5BA42A98D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F9C63C9-FF52-44D6-BA7C-B8A5BA42A98D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F9C63C9-FF52-44D6-BA7C-B8A5BA42A98D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{751193AB-D0A7-496C-A015-72B22947DEF2} = {C89BE588-4528-420F-8FE4-DBA896927A31}
+		{9F9C63C9-FF52-44D6-BA7C-B8A5BA42A98D} = {C89BE588-4528-420F-8FE4-DBA896927A31}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7736691F-EBAD-434A-99D5-7E481375CE3F}

@@ -2,7 +2,7 @@
 
 namespace Jobsity.Chat.Contracts.Settings
 {
-    public class RabbitMqQueueSettings : IQueueSettings
+    public class RabbitMqMessagingSettings : IMessagingSettings
     {
         public string RoutingKey { get; set; }
         public string ExchangeName { get; set; }
