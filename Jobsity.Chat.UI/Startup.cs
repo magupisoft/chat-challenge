@@ -1,4 +1,6 @@
 using AutoMapper;
+using Jobsity.Chat.Contracts.Constants;
+using Jobsity.Chat.Contracts.Settings;
 using Jobsity.Chat.DataContext.IdentityData;
 using Jobsity.Chat.DataContext.Models;
 using Jobsity.Chat.UI.ChatHub;
@@ -26,6 +28,12 @@ namespace Jobsity.Chat.UI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.Configure<MessageBrokerSettings>(Configuration.GetSection(
+                                        AppConstants.MessageBrokerSettingsSection));
+
+            services.Configure<RabbitMqQueueSettings>(Configuration.GetSection(
+                                       AppConstants.RabbitMqQueueSettingsSection));
+
             services.AddDbContext<IdentityDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));

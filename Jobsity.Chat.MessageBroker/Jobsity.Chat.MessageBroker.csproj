@@ -5,9 +5,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Options" Version="5.0.0" />
+    <PackageReference Include="RabbitMQ.Client" Version="6.2.1" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Jobsity.Chat.Contracts\Jobsity.Chat.Contracts.csproj" />
-    <ProjectReference Include="..\Jobsity.Chat.MessageBroker\Jobsity.Chat.MessageBroker.csproj" />
-    <ProjectReference Include="..\Jobsity.Chat.Repository\Jobsity.Chat.Repository.csproj" />
   </ItemGroup>
 
 </Project>

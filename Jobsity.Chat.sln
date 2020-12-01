@@ -9,9 +9,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Jobsity.Chat.DataContext", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Jobsity.Chat.Contracts", "Jobsity.Chat.Contracts\Jobsity.Chat.Contracts.csproj", "{377145DE-69EF-42CA-B13F-40089608995E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jobsity.Chat.Repository", "Jobsity.Chat.Repository\Jobsity.Chat.Repository.csproj", "{6C3DCF79-6688-47A8-8FB2-D05A57C3F095}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Jobsity.Chat.Repository", "Jobsity.Chat.Repository\Jobsity.Chat.Repository.csproj", "{6C3DCF79-6688-47A8-8FB2-D05A57C3F095}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jobsity.Chat.Service", "Jobsity.Chat.Service\Jobsity.Chat.Service.csproj", "{8F241D34-47E7-4056-83D4-BEF1695A1326}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Jobsity.Chat.Service", "Jobsity.Chat.Service\Jobsity.Chat.Service.csproj", "{8F241D34-47E7-4056-83D4-BEF1695A1326}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jobsity.Chat.MessageBroker", "Jobsity.Chat.MessageBroker\Jobsity.Chat.MessageBroker.csproj", "{CCF73F2B-A69B-4A34-9096-3C7E98E7D9F1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{8F241D34-47E7-4056-83D4-BEF1695A1326}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8F241D34-47E7-4056-83D4-BEF1695A1326}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8F241D34-47E7-4056-83D4-BEF1695A1326}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CCF73F2B-A69B-4A34-9096-3C7E98E7D9F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CCF73F2B-A69B-4A34-9096-3C7E98E7D9F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CCF73F2B-A69B-4A34-9096-3C7E98E7D9F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CCF73F2B-A69B-4A34-9096-3C7E98E7D9F1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
