@@ -1,12 +1,12 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using System.Text;
-using System.Threading.Tasks;
-using Jobsity.Chat.UI.Models;
+﻿using Jobsity.Chat.DataContext.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Jobsity.Chat.UI.Areas.Identity.Pages.Account
 {

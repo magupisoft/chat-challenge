@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Jobsity.Chat.Contracts\Jobsity.Chat.Contracts.csproj" />
+    <ProjectReference Include="..\Jobsity.Chat.DataContext\Jobsity.Chat.DataContext.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 
-namespace Jobsity.Chat.UI.Models
+namespace Jobsity.Chat.DataContext.Models
 {
     public class ApplicationUser : IdentityUser
     {

@@ -7,7 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Jobsity.Chat.UI", "Jobsity.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Jobsity.Chat.DataContext", "Jobsity.Chat.DataContext\Jobsity.Chat.DataContext.csproj", "{212B7211-4BD5-453E-A77D-17BAF9BE55A1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jobsity.Chat.Contracts", "Jobsity.Chat.Contracts\Jobsity.Chat.Contracts.csproj", "{377145DE-69EF-42CA-B13F-40089608995E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Jobsity.Chat.Contracts", "Jobsity.Chat.Contracts\Jobsity.Chat.Contracts.csproj", "{377145DE-69EF-42CA-B13F-40089608995E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jobsity.Chat.Repository", "Jobsity.Chat.Repository\Jobsity.Chat.Repository.csproj", "{6C3DCF79-6688-47A8-8FB2-D05A57C3F095}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jobsity.Chat.Service", "Jobsity.Chat.Service\Jobsity.Chat.Service.csproj", "{8F241D34-47E7-4056-83D4-BEF1695A1326}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +31,14 @@ Global
 		{377145DE-69EF-42CA-B13F-40089608995E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{377145DE-69EF-42CA-B13F-40089608995E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{377145DE-69EF-42CA-B13F-40089608995E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C3DCF79-6688-47A8-8FB2-D05A57C3F095}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C3DCF79-6688-47A8-8FB2-D05A57C3F095}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C3DCF79-6688-47A8-8FB2-D05A57C3F095}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C3DCF79-6688-47A8-8FB2-D05A57C3F095}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F241D34-47E7-4056-83D4-BEF1695A1326}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F241D34-47E7-4056-83D4-BEF1695A1326}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F241D34-47E7-4056-83D4-BEF1695A1326}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F241D34-47E7-4056-83D4-BEF1695A1326}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,17 +1,16 @@
+using AutoMapper;
+using Jobsity.Chat.DataContext.IdentityData;
+using Jobsity.Chat.DataContext.Models;
+using Jobsity.Chat.UI.ChatHub;
+using Jobsity.Chat.UI.Infrastructure.Extensions;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.UI;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.EntityFrameworkCore;
-using Jobsity.Chat.UI.Data;
-using Jobsity.Chat.UI.Models;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Jobsity.Chat.UI.ChatHub;
 
 namespace Jobsity.Chat.UI
 {
@@ -27,20 +26,22 @@ namespace Jobsity.Chat.UI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<ApplicationDbContext>(options =>
+            services.AddDbContext<IdentityDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = false)
-                .AddEntityFrameworkStores<ApplicationDbContext>();
+                .AddEntityFrameworkStores<IdentityDbContext>();
 
             services.AddIdentityServer()
-                .AddApiAuthorization<ApplicationUser, ApplicationDbContext>();
+                .AddApiAuthorization<ApplicationUser, IdentityDbContext>();
 
             services.AddAuthentication()
                 .AddIdentityServerJwt();
             services.AddControllersWithViews();
             services.AddRazorPages();
+            services.AddAutoMapper(typeof(Startup));
+
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
             {
@@ -50,9 +51,12 @@ namespace Jobsity.Chat.UI
             services.AddSignalR();
 
             services.AddCors(o => o.AddPolicy("JobsityCorsPolicy",
-                builder => {
+                builder =>
+                {
                     builder.AllowAnyMethod().AllowAnyHeader().AllowAnyOrigin();
                 }));
+
+            services.InjectDependencies();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -1,5 +1,5 @@
 ﻿using System.Threading.Tasks;
-using Jobsity.Chat.UI.Models;
+using Jobsity.Chat.DataContext.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;

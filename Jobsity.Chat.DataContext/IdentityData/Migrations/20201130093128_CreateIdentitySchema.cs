@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace Jobsity.Chat.UI.Data.Migrations
+namespace Jobsity.Chat.DataContext.IdentityData.Migrations
 {
     public partial class CreateIdentitySchema : Migration
     {
