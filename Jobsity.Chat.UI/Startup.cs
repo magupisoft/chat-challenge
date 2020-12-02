@@ -1,6 +1,7 @@
 using AutoMapper;
 using Jobsity.Chat.Contracts.Constants;
 using Jobsity.Chat.Contracts.Settings;
+using Jobsity.Chat.DataContext.ChatData;
 using Jobsity.Chat.DataContext.IdentityData;
 using Jobsity.Chat.DataContext.Models;
 using Jobsity.Chat.UI.ChatHub;
@@ -31,7 +32,14 @@ namespace Jobsity.Chat.UI
             services.Configure<MessageBrokerSettings>(Configuration.GetSection(
                                         AppConstants.MessageBrokerSettingsSection));
 
+            services.Configure<StockMarketSettings>(Configuration.GetSection(
+                                        AppConstants.StockMarketSettingsSection));
+
             services.AddDbContext<IdentityDbContext>(options =>
+                options.UseSqlServer(
+                    Configuration.GetConnectionString("DefaultConnection")));
+
+            services.AddDbContext<ChatDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
 
@@ -58,7 +66,10 @@ namespace Jobsity.Chat.UI
             services.AddCors(o => o.AddPolicy("JobsityCorsPolicy",
                 builder =>
                 {
-                    builder.AllowAnyMethod().AllowAnyHeader().AllowAnyOrigin();
+                    builder
+                        .AllowAnyMethod()
+                        .AllowAnyHeader()
+                        .AllowAnyOrigin();
                 }));
 
             services.InjectDependencies();

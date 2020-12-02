@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 
-namespace Jobsity.Chat.UI
+namespace Jobsity.Chat.Api
 {
     public class Program
     {

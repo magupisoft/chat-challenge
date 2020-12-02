@@ -13,7 +13,7 @@ namespace Jobsity.Chat.Service.IdentityService
             _identityRepository = identityRepository;
         }
 
-        public Task<UserDto> GetUser(string userId) => _identityRepository.GetUserAsync(userId);
+        public Task<UserDto> GetUserAsync(string userId) => _identityRepository.GetUserAsync(userId);
 
     }
 }

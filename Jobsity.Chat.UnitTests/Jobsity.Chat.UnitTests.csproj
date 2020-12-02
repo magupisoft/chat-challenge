@@ -7,7 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="9.0.0" />
+    <PackageReference Include="FluentAssertions" Version="5.10.3" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.7.1" />
+    <PackageReference Include="Moq" Version="4.15.2" />
     <PackageReference Include="xunit" Version="2.4.1" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.4.3">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -17,6 +20,15 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Jobsity.Chat.Contracts\Jobsity.Chat.Contracts.csproj" />
+    <ProjectReference Include="..\Jobsity.Chat.DataContext\Jobsity.Chat.DataContext.csproj" />
+    <ProjectReference Include="..\Jobsity.Chat.MessageBroker\Jobsity.Chat.MessageBroker.csproj" />
+    <ProjectReference Include="..\Jobsity.Chat.Repository\Jobsity.Chat.Repository.csproj" />
+    <ProjectReference Include="..\Jobsity.Chat.Service\Jobsity.Chat.Service.csproj" />
+    <ProjectReference Include="..\Jobsity.Chat.UI\Jobsity.Chat.UI.csproj" />
   </ItemGroup>
 
 </Project>

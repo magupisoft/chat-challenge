@@ -13,13 +13,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Jobsity.Chat.Repository", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Jobsity.Chat.Service", "Jobsity.Chat.Service\Jobsity.Chat.Service.csproj", "{8F241D34-47E7-4056-83D4-BEF1695A1326}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jobsity.Chat.MessageBroker", "Jobsity.Chat.MessageBroker\Jobsity.Chat.MessageBroker.csproj", "{CCF73F2B-A69B-4A34-9096-3C7E98E7D9F1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Jobsity.Chat.MessageBroker", "Jobsity.Chat.MessageBroker\Jobsity.Chat.MessageBroker.csproj", "{CCF73F2B-A69B-4A34-9096-3C7E98E7D9F1}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{C89BE588-4528-420F-8FE4-DBA896927A31}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jobsity.Chat.IntegrationTests", "Jobsity.Chat.IntegrationTests\Jobsity.Chat.IntegrationTests.csproj", "{751193AB-D0A7-496C-A015-72B22947DEF2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Jobsity.Chat.IntegrationTests", "Jobsity.Chat.IntegrationTests\Jobsity.Chat.IntegrationTests.csproj", "{751193AB-D0A7-496C-A015-72B22947DEF2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jobsity.Chat.UnitTests", "Jobsity.Chat.UnitTests\Jobsity.Chat.UnitTests.csproj", "{9F9C63C9-FF52-44D6-BA7C-B8A5BA42A98D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Jobsity.Chat.UnitTests", "Jobsity.Chat.UnitTests\Jobsity.Chat.UnitTests.csproj", "{9F9C63C9-FF52-44D6-BA7C-B8A5BA42A98D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jobsity.Chat.Api", "Jobsity.Chat.Api\Jobsity.Chat.Api.csproj", "{1323FF3E-500E-466E-BF8D-4C9BA5B3E86F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -59,6 +61,10 @@ Global
 		{9F9C63C9-FF52-44D6-BA7C-B8A5BA42A98D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9F9C63C9-FF52-44D6-BA7C-B8A5BA42A98D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9F9C63C9-FF52-44D6-BA7C-B8A5BA42A98D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1323FF3E-500E-466E-BF8D-4C9BA5B3E86F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1323FF3E-500E-466E-BF8D-4C9BA5B3E86F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1323FF3E-500E-466E-BF8D-4C9BA5B3E86F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1323FF3E-500E-466E-BF8D-4C9BA5B3E86F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

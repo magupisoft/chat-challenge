@@ -24,16 +24,21 @@ namespace Jobsity.Chat.MessageBroker
 
         public void AddConsumer(string name, IMessagingSettings queueSettings)
         {
-            var consumer = this.CreateConsumer(queueSettings);
-            Consumers.Add(name, consumer);
+            if (!Consumers.ContainsKey(name))
+            {
+                var consumer = this.CreateConsumer(queueSettings);
+                Consumers.Add(name, consumer);
+            }
 
             Consumers[name].StartListeningMessages();
         }
         public void AddProducer(string name, IMessagingSettings queueSettings)
         {
-            var producer = this.CreateProducer(queueSettings);
-
-            Producers.Add(name, producer);
+            if (!Producers.ContainsKey(name))
+            {
+                var producer = this.CreateProducer(queueSettings);            
+                Producers.Add(name, producer);
+            }
         }
 
         public abstract void StartResilientConnection();

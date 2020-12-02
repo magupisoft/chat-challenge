@@ -22,9 +22,18 @@ namespace Jobsity.Chat.IntegrationTests
         public static IOptions<MessageBrokerSettings> GetMessageBrokerSettings()
         {
             var config = ConfigurationSingletonFactory.InstanceConfiguration;
-            var messageBrokerSettings = new MessageBrokerSettings();
-            config.GetSection("MessageBroker").Bind(messageBrokerSettings);
-            var settingsOptions = Options.Create(messageBrokerSettings);
+            var settings = new MessageBrokerSettings();
+            config.GetSection("MessageBroker").Bind(settings);
+            var settingsOptions = Options.Create(settings);
+            return settingsOptions;
+        }
+
+        public static IOptions<StockMarketSettings> GetStockMarketSettings()
+        {
+            var config = ConfigurationSingletonFactory.InstanceConfiguration;
+            var settings = new StockMarketSettings();
+            config.GetSection("StockMarket").Bind(settings);
+            var settingsOptions = Options.Create(settings);
             return settingsOptions;
         }
     }

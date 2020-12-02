@@ -3,8 +3,8 @@ using System.Threading.Tasks;
 
 namespace Jobsity.Chat.Contracts.Interfaces
 {
-    public interface IIdentityService
+    public interface IStockMarketService
     {
-        Task<UserDto> GetUserAsync(string userId);
+        Task<StockSymbolQuoteDto> GetQuoteAsync(string symbol);
     }
 }

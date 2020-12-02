@@ -6,7 +6,7 @@
   </ul>
 </div>
 <div class="chat-input">
-  <input type="text" placeholder="Type your message here" class="chat-input" [(ngModel)]="msgDto.message">
+  <input type="text" placeholder="Type your message here" class="chat-input" [(ngModel)]="msgDto.message" (keyup.enter)="sendMessage()" >
   <br>
   <button class="send-btn" (click)="sendMessage()">Send</button>
 </div>

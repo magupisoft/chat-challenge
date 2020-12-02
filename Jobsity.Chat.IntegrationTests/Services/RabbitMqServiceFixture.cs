@@ -15,22 +15,26 @@ namespace Jobsity.Chat.IntegrationTests.Services
         public RabbitMqServiceFixture(ITestOutputHelper testOutput)
         {
             _testOutput = testOutput;
-            _rabbitMeService = new RabbitMqService(ConfigurationSingletonFactory.GetMessageBrokerSettings());
+            _rabbitMeService = new RabbitMqService(ConfigurationSingletonFactory.GetMessageBrokerSettings(), null);
         }
 
         [Theory]
         [InlineData("AAPL.US")]
         public void ShouldAskForQuoteData(string symbol)
         {
+            // Arrange
             _rabbitMeService.OnQuoteDataReceived += new NotifyCallerDelegate(OnQuoteReceived);
+
+            // Act
             _rabbitMeService.AskForQuote(symbol);
         }
 
         protected void OnQuoteReceived(MessageEventArgs<StockQuoteCommand> args)
         {
+            // Assert
             Assert.True(args.Message != null);
             Assert.True(args.Message.Price > 0m);
-            _testOutput.WriteLine("ReceiveChatMessage", "Bot", $"{args.Message.Symbol} quote is ${args.Message.Price} per share");
+            _testOutput.WriteLine($"{args.Message.Symbol} quote is ${args.Message.Price} per share");
         }
     }
 }

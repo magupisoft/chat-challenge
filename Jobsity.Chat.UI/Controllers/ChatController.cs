@@ -30,8 +30,9 @@ namespace Jobsity.Chat.UI.Controllers
         [HttpPost]
         public async Task<IActionResult> SendRequest(MessageDto msg)
         {
-            var user = await _identityService.GetUser(this.User.FindFirst(ClaimTypes.NameIdentifier).Value);
-            if (msg.Message.StartsWith("/stock="))
+            var user = await _identityService.GetUserAsync(this.User.FindFirst(ClaimTypes.NameIdentifier).Value);
+
+            if (msg.Message.ToLowerInvariant().StartsWith("/stock="))
             {
                 var symbol = msg.Message.Split('=')[1];
                 _rabbitMqService.OnQuoteDataReceived += new NotifyCallerDelegate(OnQuoteReceived);
@@ -48,6 +49,11 @@ namespace Jobsity.Chat.UI.Controllers
         private void OnQuoteReceived(MessageEventArgs<StockQuoteCommand> args)
         {
             if (args.Message == null) return;
+            if (args.Message.Symbol == "error")
+            {
+                _hubContext.Clients.All.SendAsync("ReceiveChatMessage", "Bot", $"{args.Message.Symbol} quote was not found.").ConfigureAwait(true).GetAwaiter().GetResult();
+                return;
+            }
             _hubContext.Clients.All.SendAsync("ReceiveChatMessage", "Bot", $"{args.Message.Symbol} quote is ${args.Message.Price} per share").ConfigureAwait(true).GetAwaiter().GetResult();
         }
     }
