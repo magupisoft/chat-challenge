@@ -2,8 +2,11 @@
 
 
 ## Jobsity Code Challenge
-Users signed in are able to chat in the chatroom. Market Quotes can be requested to Chat-Bot using the following command format:
+- Authenticated users (.NET Identity) are able to chat in the chatroom. 
+- The chat will load the last 50 messages
+- Market Quotes can be requested to Chat-Bot using the following command format:
 /stock=nio.us
+- 
 
 @Author Manuel Gutierrez Pineda
  
