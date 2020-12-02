@@ -1,14 +1,21 @@
 [![Build Status](https://travis-ci.org/magupisoft/jobsity-challenge.svg?branch=develop)](https://travis-ci.org/magupisoft/jobsity-challenge)
 
-# jobsity-challenge
 
-Generate Database from CLI
+## Jobsity Code Challenge
+Users signed in are able to chat in the chatroom. Market Quotes can be requested to Chat-Bot using the following command format:
+/stock=nio.us
 
-dotnet tool install --global dotnet-ef
-dotnet ef database update
+@Author Manuel Gutierrez Pineda
+ 
+## Generate Database from Package Manager Console in Visual Studio  
 
+> Update-Database -Context IdentityDbContext -StartupProject Jobsity.Chat.UI -Project Jobsity.Chat.DataContext
+>  Update-Database -Context ChatDbContext -StartupProject Jobsity.Chat.UI -Project Jobsity.Chat.DataContext
 Install and run RabbitMq with Docker
 
-docker run -it --rm --name rabbitmq -p 5672:5672 -p 15672:15672 rabbitmq:3-management
+  
+## Running local instance of RabbitMq using Docker
+> docker run -it --rm --name rabbitmq -p 5672:5672 -p 15672:15672 rabbitmq:3-management
 
 Confirm RabbitMq is running going to your browser and opening http://127.0.0.1:15672/
+
