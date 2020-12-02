@@ -1,6 +1,3 @@
-[![Build Status](https://travis-ci.org/magupisoft/jobsity-challenge.svg?branch=develop)](https://travis-ci.org/magupisoft/jobsity-challenge)
-
-
 ## Jobsity Code Challenge
 - Authenticated users (.NET Identity) are able to chat in the chatroom. 
 - The chat will load the last 50 messages
