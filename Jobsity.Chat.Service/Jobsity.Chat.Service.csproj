@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CsvHelper" Version="17.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Jobsity.Chat.Contracts\Jobsity.Chat.Contracts.csproj" />
+    <ProjectReference Include="..\Jobsity.Chat.MessageBroker\Jobsity.Chat.MessageBroker.csproj" />
+    <ProjectReference Include="..\Jobsity.Chat.Repository\Jobsity.Chat.Repository.csproj" />
+  </ItemGroup>
+
+</Project>
