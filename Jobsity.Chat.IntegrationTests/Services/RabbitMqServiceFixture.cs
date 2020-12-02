@@ -23,6 +23,7 @@ namespace Jobsity.Chat.IntegrationTests.Services
         public void ShouldAskForQuoteData(string symbol)
         {
             // Arrange
+            _rabbitMeService.OnQuoteDataReceived -= new NotifyCallerDelegate(OnQuoteReceived);
             _rabbitMeService.OnQuoteDataReceived += new NotifyCallerDelegate(OnQuoteReceived);
 
             // Act

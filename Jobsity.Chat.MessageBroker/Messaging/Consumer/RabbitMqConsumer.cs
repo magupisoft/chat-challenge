@@ -54,6 +54,7 @@ namespace Jobsity.Chat.MessageBroker.Messaging
 
             var consumer = new EventingBasicConsumer(this.Channel);
 
+            consumer.Received -= RabbitMqMessageReceived;
             consumer.Received += RabbitMqMessageReceived;
 
             this.Channel.BasicConsume(queue: MessagingSettings.QueueName,

@@ -19,11 +19,25 @@ namespace Jobsity.Chat.UI.Controllers
         private readonly IHubContext<JobSityChatHub> _hubContext;
         private readonly IIdentityService _identityService;
         private readonly IRabbitMqService _rabbitMqService;
-        public ChatController(IHubContext<JobSityChatHub> hubContext, IIdentityService identityService, IRabbitMqService rabbitMqService)
+        private readonly IConversationService _conversationService;
+        public ChatController(IHubContext<JobSityChatHub> hubContext, IIdentityService identityService, IRabbitMqService rabbitMqService, IConversationService conversationService)
         {
             _hubContext = hubContext;
             _identityService = identityService;
             _rabbitMqService = rabbitMqService;
+            _conversationService = conversationService;
+        }
+
+        [Route("load")]
+        [HttpGet("{numMsgs}")]
+        public async Task<IActionResult> LoadMessages(int numMsgs = 50)
+        {
+            var conversationMessages = await _conversationService.GetConversationAsync(numMsgs);
+            foreach (var message in conversationMessages)
+            {
+                await _hubContext.Clients.All.SendAsync("ReceiveChatMessage", message.User, message.Message);
+            }
+            return Ok(conversationMessages);
         }
 
         [Route("send")]
@@ -35,12 +49,14 @@ namespace Jobsity.Chat.UI.Controllers
             if (msg.Message.ToLowerInvariant().StartsWith("/stock="))
             {
                 var symbol = msg.Message.Split('=')[1];
+                _rabbitMqService.OnQuoteDataReceived -= new NotifyCallerDelegate(OnQuoteReceived);
                 _rabbitMqService.OnQuoteDataReceived += new NotifyCallerDelegate(OnQuoteReceived);
                 _rabbitMqService.AskForQuote(symbol);
                 await _hubContext.Clients.All.SendAsync("ReceiveChatMessage", "Bot", $"You have asked for the following stock: {symbol} ...please wait a moment while getting your quote");
             }
             else
             {
+                await _conversationService.SaveConversationMessage(new MessageDto { User = user.UserName, Message = msg.Message});
                 await _hubContext.Clients.All.SendAsync("ReceiveChatMessage", user.UserName, msg.Message);
             }
             return Ok();

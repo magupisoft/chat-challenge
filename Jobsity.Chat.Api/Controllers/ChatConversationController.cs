@@ -9,11 +9,12 @@ using System.Threading.Tasks;
 namespace Jobsity.Chat.Api.Controllers
 {
     /// <summary>
-    /// Test
+    /// Chat API for accessing Chat converstation messages from persistance storage
     /// </summary>
+    [ApiController]
     [Produces(MediaTypeNames.Application.Json)]
     [ApiVersion("1.0")]
-    [Route("api/chat/conversation")]
+    [Route("api/chat")]
     public class ChatConversationController : ControllerBase
     {
         private readonly IConversationService _conversationService;
@@ -28,27 +29,27 @@ namespace Jobsity.Chat.Api.Controllers
         }
 
         /// <summary>
-        /// Returns the last numbers of chats messages
+        /// Returns the last numbers of chats messages from persistance storage
         /// </summary>
         /// <param name="numMsgs">Number of message to retrieve</param>
         /// <returns>Chat Conversation Messages</returns>
         /// <response code="200">Chat Conversation found.</response>
         /// <response code="404">Chat Conversation is not found.</response>
-        [HttpGet("/{numMsgs}")]
+        [HttpGet("load/{numMsgs}/messages")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<ActionResult<IEnumerable<MessageDto>>> GetConversation(int numMsgs = 50)
+        public async Task<ActionResult<IEnumerable<MessageDto>>> GetConversationMessages(int numMsgs = 50)
         {
             return Ok(await _conversationService.GetConversationAsync(numMsgs));
         }
 
         /// <summary>
-        /// Saves Chat Message
+        /// Saves Chat Message in persistance storage
         /// </summary>
         /// <returns></returns>
         /// <response code="202">Chat Conversation Message saved correctly.</response>
         /// <response code="500">Error while saving Chat Conversation Message.</response>
-        [HttpPost("/save")]
+        [HttpPost("/save/message")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status422UnprocessableEntity)]
         public async Task<ActionResult<IEnumerable<MessageDto>>> SaveChatMessage([FromBody]MessageDto msg)

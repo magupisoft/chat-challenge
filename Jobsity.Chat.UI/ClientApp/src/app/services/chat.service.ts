@@ -14,6 +14,7 @@ export class ChatService {
     .build();
 
   private SEND_URL = "https://localhost:44389/api/chat/send";
+  private LOAD_URL = "https://localhost:44389/api/chat/load?numMsgs=50";
 
   private receivedMessageObject: MessageDto = new MessageDto();
   private sharedObservableSubject = new Subject<MessageDto>();
@@ -37,6 +38,10 @@ export class ChatService {
   public sendMessage(msg: any) {
     console.log(msg);
     this.http.post(this.SEND_URL, msg).subscribe(data => console.log(data));
+  }
+
+  public loadMessages() {
+    this.http.get(this.LOAD_URL).subscribe(data => console.log(data));
   }
 
   public retrieveMessage(): Observable<MessageDto> {

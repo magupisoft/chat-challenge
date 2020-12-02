@@ -14,6 +14,9 @@ export class ChatComponent implements OnInit {
   constructor(private chatService: ChatService) { }
 
   ngOnInit(): void {
+    console.log('LOAD MESSAGES');
+    this.chatService.loadMessages();
+
     this.chatService.retrieveMessage().subscribe(
       (receivedMessage: MessageDto) => {
         this.addToDisplayedConversation(receivedMessage);
@@ -33,8 +36,8 @@ export class ChatComponent implements OnInit {
   public sendMessage(): void {
     if (this.msgDto) {
       this.msgDto.user = 'Anonymous';
-      if(this.msgDto.message.length === 0) {
-        window.alert("Message is required");
+      if (this.msgDto.message.length === 0) {
+        window.alert('Message is required');
         return;
       }
       console.log(this.msgDto);
